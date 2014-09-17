@@ -25,5 +25,10 @@ describe BikeContainer do
 		expect(lambda {holder.empty?}).to raise_error(RuntimeError)
 	end
 
+	it "should report if full" do
+		10.times { holder.dock(bike) }
+		expect(lambda {holder.full?}).to raise_error(RuntimeError)
+	end
+
 end
 

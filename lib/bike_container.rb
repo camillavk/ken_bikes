@@ -1,5 +1,7 @@
 class BikeContainer
 
+	DEFAULT_CAPACITY = 10
+
 	def initialize
 		@bikes = []
 	end
@@ -24,4 +26,9 @@ class BikeContainer
 	def empty?
 		raise "I am empty" if bike_count == 0
 	end
+
+	def full?
+		raise "I am full" if bike_count == DEFAULT_CAPACITY
+	end
+
 end
