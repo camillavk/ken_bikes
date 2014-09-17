@@ -10,4 +10,10 @@ let (:bike) { Bike.new }
 		expect(bike.broken?).to eq(true)
 	end
 
+	it "can be broken by a person" do
+		person = double(:person, {fall_down: bike.break!})
+		person.fall_down
+		expect(bike.broken?).to eq(true)
+	end
+
 end
