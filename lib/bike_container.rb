@@ -20,4 +20,8 @@ class BikeContainer
 		count = bike_count
 		count.times { @bikes.pop }	
 	end
+
+	def empty?
+		raise "I am empty" if bike_count == 0
+	end
 end
