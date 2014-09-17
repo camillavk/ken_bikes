@@ -12,4 +12,8 @@ class Person
 		!@bike.nil?
 	end
 
+	def return(bike)
+		@bike = nil
+	end
+
 end

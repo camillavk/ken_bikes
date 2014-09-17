@@ -18,6 +18,16 @@ class BikeContainer
 		@bikes.length
 	end
 
+	def release(bike = nil)
+		if bike 
+			@bikes.delete(bike)
+		else
+			@bikes.shift
+		end
+	end
+	
+
+
 	def transfer(recipient)
 		count = bike_count
 		count.times { @bikes.pop }	
