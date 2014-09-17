@@ -32,3 +32,4 @@ class BikeContainer
 	end
 
 end
+
