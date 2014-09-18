@@ -7,8 +7,9 @@ end
 describe BikeContainer do
 
 	let (:holder) { Holder.new }
-	let (:bike) { double :bike }
-	let (:bike2) { double :bike2 }
+	let (:bike) { double :bike, :broken? => false }
+	let (:bike2) { double :bike2, broken?: false }
+	let(:bikebroken) { double :bikebroken, broken?: true }
 	
 
 	it "should be able to store bikes" do
@@ -32,6 +33,13 @@ describe BikeContainer do
 	it "should report if full" do
 		10.times { holder.dock(bike) }
 		expect(lambda {holder.full?}).to raise_error(RuntimeError)
+	end
+
+	it "should be able to group together the broken bikes" do
+		5.times { holder.dock(bike) }
+		5.times { holder.dock(bikebroken) }
+		holder.collect_broken_bikes
+		expect(holder.collect_broken_bikes.length).to eq(5)
 	end
 
 end

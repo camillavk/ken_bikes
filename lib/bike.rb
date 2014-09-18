@@ -1,6 +1,4 @@
 class Bike
-	
-	
 
 	def initialize(broken = false)
 		@broken = broken
