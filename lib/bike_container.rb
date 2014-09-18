@@ -42,11 +42,19 @@ module BikeContainer
 		raise "I am full" if bike_count == DEFAULT_CAPACITY
 	end
 
-	def collect_broken_bikes
+	def broken_bikes
 		@bikes.select do |bike|
 			bike.broken?		
 		end
 	end
+
+	def available_bikes
+		@bikes.reject do |bike|
+			bike.broken?
+		end
+	end
+
+
 
 end
 

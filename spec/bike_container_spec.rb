@@ -40,8 +40,8 @@ describe BikeContainer do
 	it "should be able to group together the broken bikes" do
 		5.times { holder.dock(bike) }
 		5.times { holder.dock(bikebroken) }
-		holder.collect_broken_bikes
-		expect(holder.collect_broken_bikes.length).to eq(5)
+		holder.broken_bikes
+		expect(holder.broken_bikes.length).to eq(5)
 	end
 end
 end
