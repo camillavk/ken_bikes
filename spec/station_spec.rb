@@ -26,6 +26,7 @@ describe Station do
 		station.transfer(person)
 		expect(person.bike_count).to eq(1)
 		expect(station.bike_count).to eq(0)
-
 	end
+
+	
 end
