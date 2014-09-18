@@ -9,14 +9,13 @@ shared_examples "a BikeContainer" do
 describe BikeContainer do
 
 	let (:holder) { Holder.new }
-	let (:bike) { double :bike, :broken? => false }
-	let (:bike2) { double :bike2, broken?: false }
-	let(:bikebroken) { double :bikebroken, broken?: true }
-	
+	let (:bike) { Bike.new }	
 
 	it "should be able to store bikes" do
-		holder.dock(bike)
-		holder.dock(bike2)
+		2.times do
+			bike = Bike.new
+			holder.dock(bike)
+		end
 		expect(holder.bike_count).to eq(2)
 	end
 
@@ -26,9 +25,15 @@ describe BikeContainer do
 
 
 	it "should be able to group together the broken bikes" do
-		5.times { holder.dock(bike) }
-		5.times { holder.dock(bikebroken) }
-		holder.broken_bikes
+		5.times do
+			bike = Bike.new
+			holder.dock(bike)
+		end
+		5.times do
+			bike = Bike.new
+			bike.break!
+			holder.dock(bike)
+		end
 		expect(holder.broken_bikes.length).to eq(5)
 	end
 
