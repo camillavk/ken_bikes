@@ -4,6 +4,8 @@ class Holder
 	include BikeContainer
 end
 
+shared_examples "a BikeContainer" do
+
 describe BikeContainer do
 
 	let (:holder) { Holder.new }
@@ -41,6 +43,6 @@ describe BikeContainer do
 		holder.collect_broken_bikes
 		expect(holder.collect_broken_bikes.length).to eq(5)
 	end
-
+end
 end
 
