@@ -2,8 +2,6 @@ module BikeContainer
 
 	DEFAULT_CAPACITY = 10
 
-
-
 	def initialize
 		@bikes = []
 		@broken_bikes = []
