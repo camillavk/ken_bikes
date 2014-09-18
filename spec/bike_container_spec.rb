@@ -1,11 +1,15 @@
 require 'bike_container'
 
+class Holder
+	include BikeContainer
+end
+
 describe BikeContainer do
 
-	let (:holder) { BikeContainer.new }
+	let (:holder) { Holder.new }
 	let (:bike) { double :bike }
 	let (:bike2) { double :bike2 }
-
+	
 
 	it "should be able to store bikes" do
 		holder.dock(bike)

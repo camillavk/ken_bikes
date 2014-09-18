@@ -16,5 +16,11 @@ describe Person do
 		person.return(bike)
 		expect(person.have_bike?).to eq(false)
 	end
+
+	it "shouold be able to fall down and tell a bike to break" do
+		person.rent(bike)
+		expect(bike).to receive(:break!)
+		person.fall_down
+	end 
 	
 end

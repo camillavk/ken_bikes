@@ -1,4 +1,4 @@
-class BikeContainer
+module BikeContainer
 
 	DEFAULT_CAPACITY = 10
 
@@ -26,8 +26,6 @@ class BikeContainer
 		end
 	end
 	
-
-
 	def transfer(recipient)
 		count = bike_count
 		count.times { @bikes.pop }	
