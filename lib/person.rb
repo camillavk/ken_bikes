@@ -21,4 +21,8 @@ class Person
 		bike.break!
 	end
 
+	def full?
+		raise "I am full" if bike_count > capacity
+	end
+
 end

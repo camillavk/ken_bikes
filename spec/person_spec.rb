@@ -18,6 +18,10 @@ describe Person do
 		person.fall_down(bike)
 	end 
 
+	it "should not be able to hold more than 1 bike" do
+		2.times { person.dock(bike) }
+		expect(lambda {person.full?}).to raise_error(RuntimeError)
+	end
 
 	
 end
