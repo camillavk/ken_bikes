@@ -38,7 +38,13 @@ module BikeContainer
 			broken_bikes.each do |bike|	
 				recipient.dock(release(bike))
 			end
+		elsif recipient.instance_of?(Person)
+			available_bikes.each do |bike|
+			recipient.dock(release(bike))
 		end
+		else 
+			raise "This action is not allowed"
+	end
 
 	end
 

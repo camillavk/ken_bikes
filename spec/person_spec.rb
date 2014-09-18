@@ -3,8 +3,10 @@ require 'Person'
 describe Person do
 
 	let (:person) { Person.new }
-	let (:bike) { double :bike }
-	let (:docking_station) { double :docking_station }
+	let (:bike) { Bike.new }
+	let (:station) { Station.new }
+
+	it_behaves_like "a BikeContainer"
 
 	it "should be able to rent a bike" do
 		person.rent(bike)
@@ -24,9 +26,6 @@ describe Person do
 		person.fall_down
 	end 
 
-	# it "should be able to rent a bike from  docking station" do
-	# 	person.rent(bike)
-	# 	expect(docking_station).to receive(:release)
-	# end
+
 	
 end
