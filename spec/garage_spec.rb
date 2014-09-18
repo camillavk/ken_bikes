@@ -16,4 +16,13 @@ describe Garage do
 		expect(garage.available_bikes.count).to eq(5)
 	end
 
+	it "should be able to transfer fixed bikes from garage to van" do
+		5.times do
+			bike = Bike.new
+			garage.dock(bike)
+		end
+		garage.transfer(van)
+		expect(van.bike_count).to eq(5)
+		expect(garage.bike_count).to eq(0)
+	end
 end

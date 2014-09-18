@@ -35,7 +35,7 @@ module BikeContainer
 				recipient.dock(release(bike))
 			end
 		elsif recipient.instance_of?(Van)
-			available_bikes.each do |bike|	
+			broken_bikes.each do |bike|	
 				recipient.dock(release(bike))
 			end
 		end

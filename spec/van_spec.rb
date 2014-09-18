@@ -8,6 +8,7 @@ describe Van do
 	let(:van) { Van.new }
 	let(:bike) { Bike.new }
 	let(:garage) { Garage.new }
+	let(:station) { Station.new }
 
 	it "should report if empty" do
 			expect(lambda {van.empty?}).to raise_error(RuntimeError)
@@ -23,6 +24,16 @@ describe Van do
 		expect(garage.bike_count).to eq(5)
 		expect(van.bike_count).to eq(0)
 		
+	end
+
+	it "should be able to transfer from van to station" do
+		5.times do
+			bike = Bike.new
+			van.dock(bike)
+		end
+		van.transfer(station)
+		expect(station.bike_count).to eq(5)
+		expect(van.bike_count).to eq(0)
 	end
 
 end
