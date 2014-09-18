@@ -1,10 +1,13 @@
 module BikeContainer
 
-	DEFAULT_CAPACITY = 10
-
-	def initialize
+	def initialize(capacity = 10)
+		@capacity = capacity
 		@bikes = []
 		@broken_bikes = []
+	end
+
+	def capacity
+		@capacity
 	end
 
 	def has_bikes?
@@ -51,7 +54,7 @@ module BikeContainer
 	end
 
 	def full?
-		raise "I am full" if bike_count == DEFAULT_CAPACITY
+		raise "I am full" if bike_count == capacity
 	end
 
 	def broken_bikes
