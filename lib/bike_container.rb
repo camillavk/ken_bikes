@@ -22,16 +22,24 @@ module BikeContainer
 	end
 
 	def release(bike = nil)
-		if bike 
-			@bikes.delete(bike)
-		else
-			@bikes.shift
-		end
+		@bikes.delete(bike)
 	end
 	
 	def transfer(recipient)
-		count = bike_count
-		count.times { @bikes.pop }	
+		if recipient.instance_of?(Garage)
+			broken_bikes.each do |bike|
+				recipient.dock(release(bike))
+			end
+		elsif recipient.instance_of?(Station)
+			available_bikes.each do |bike|
+				recipient.dock(release(bike))
+			end
+		elsif recipient.instance_of?(Van)
+			available_bikes.each do |bike|	
+				recipient.dock(release(bike))
+			end
+		end
+
 	end
 
 	def empty?

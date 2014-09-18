@@ -20,13 +20,13 @@ describe BikeContainer do
 		expect(holder.bike_count).to eq(2)
 	end
 
-	it "should be able to empty bikes from bike_container" do
-		van = double :van
-		holder.dock(bike)
-		holder.dock(bike2)
-		holder.transfer(van)
-		expect(holder.bike_count).to eq(0)
-	end
+	# it "should be able to empty bikes from bike_container" do
+	# 	van = double :van
+	# 	holder.dock(bike)
+	# 	holder.dock(bike2)
+	# 	holder.transfer(van)
+	# 	expect(holder.bike_count).to eq(0)
+	# end
 
 	it "should report if empty" do
 		expect(lambda {holder.empty?}).to raise_error(RuntimeError)
@@ -43,6 +43,8 @@ describe BikeContainer do
 		holder.broken_bikes
 		expect(holder.broken_bikes.length).to eq(5)
 	end
+
+	
 end
 end
 
