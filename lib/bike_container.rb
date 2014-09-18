@@ -54,7 +54,7 @@ module BikeContainer
 	end
 
 	def full?
-		raise "I am full" if bike_count == capacity
+		raise "I am full" if bike_count > capacity
 	end
 
 	def broken_bikes

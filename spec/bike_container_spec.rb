@@ -24,10 +24,6 @@ describe BikeContainer do
 		expect(lambda {holder.empty?}).to raise_error(RuntimeError)
 	end
 
-	it "should report if full" do
-		10.times { holder.dock(bike) }
-		expect(lambda {holder.full?}).to raise_error(RuntimeError)
-	end
 
 	it "should be able to group together the broken bikes" do
 		5.times { holder.dock(bike) }

@@ -36,4 +36,9 @@ describe Van do
 		expect(van.bike_count).to eq(0)
 	end
 
+	it "should report if full" do
+		16.times { van.dock(bike) }
+		expect(lambda {van.full?}).to raise_error(RuntimeError)
+	end
+
 end
